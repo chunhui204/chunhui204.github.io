@@ -1,3 +1,10 @@
+---
+layout: post
+title: "【CVPR2016】Multi-Oriented Text Detection with Fully Convolutional Networks"
+date: 2018-6-27
+tag: text detection 
+---   
+
 # Introduction
 
 * 通过手工设计的字符特征训练字符分类器，以及通过文本行的对称性、自相似性来区分text/non-text，可以看出局部信息（字符区域）和全局信息（文本块）都对文本检测有帮助
