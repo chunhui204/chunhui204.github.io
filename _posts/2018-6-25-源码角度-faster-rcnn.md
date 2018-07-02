@@ -1,3 +1,10 @@
+---
+layout: post
+title: "源码角度-faster-rcnn"
+date: 2018-6-25
+tag: faster-rcnn
+---   
+
 * RPN 网络结构：
 ![RPN](_images/faster_rcnn.png)
 >RPN是全卷积网络，由一层3*3卷积和两组并行的1*1卷积构成（1*1*2k对应score， 1*1*4k对应reg），由于全卷积，所以对feature map大小不限制。3*3的卷积核一般256个，对于51*39*C的特征图，卷积后成为51*39*256，对于vgg来说C=512，所以这一层有降维的作用。1*1卷几各有2k和4k个卷积核（k=9），输出为51*39*2k，51*39*4k，相当于特征图每个位置都有k个anchor的分数和坐标。
