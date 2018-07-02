@@ -1,3 +1,10 @@
+---
+layout: post
+title: "C++ Notes"
+date: 2018-6-25
+tag: C++ 
+---   
+
 # Introduction
 * 自底向上方法（bottom-up）的流程：
 
