@@ -43,7 +43,7 @@ tag: text detection
 # coarse network
 
 包括coarse text network 和fine network两个网络，首先由coarse网络得到文本块的heatmap， 再由fine网络分离出文本行。
-![](_images/CCTN-1.png)
+<img src="_images/CCTN-1.png">
 
 * 网络结构
 
