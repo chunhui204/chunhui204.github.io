@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "C++ Notes"
+title: "Weilin Huang——【arXiv2016】Accurate Text Localization in Natural Image with Cascaded Convolutional Text Network"
 date: 2018-6-25
-tag: C++ 
+tag: text detection 
 ---   
 
 # Introduction
