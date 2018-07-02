@@ -4,7 +4,7 @@ title: "Weilin Huang—【arXiv2016】Accurate Text Localization in Natural Imag
 date: 2018-6-25
 tag: text detection 
 ---   
-![](/images/3.PNG)
+
 # Introduction
 * 自底向上方法（bottom-up）的流程：
 
