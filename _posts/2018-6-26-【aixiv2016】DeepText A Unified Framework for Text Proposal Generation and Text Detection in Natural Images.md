@@ -1,3 +1,9 @@
+---
+layout: post
+title: "【aixiv2016】DeepText A Unified Framework for Text Proposal Generation and Text Detection in Natural Images"
+date: 2018-6-26
+tag: text detection 
+---   
 本篇论文是将faster-rcnn模型进行改进，应用于文本识别领域。下面主要看看本文对原模型的改进点：
 
 1. RPN-->Inception-RPN
