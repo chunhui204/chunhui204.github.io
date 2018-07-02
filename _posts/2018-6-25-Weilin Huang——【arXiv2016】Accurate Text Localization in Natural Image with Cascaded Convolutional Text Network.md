@@ -4,7 +4,7 @@ title: "Weilin Huang—【arXiv2016】Accurate Text Localization in Natural Imag
 date: 2018-6-25
 tag: text detection 
 ---   
-
+![](/images/3.png)
 # Introduction
 * 自底向上方法（bottom-up）的流程：
 
@@ -43,7 +43,7 @@ tag: text detection
 # coarse network
 
 包括coarse text network 和fine network两个网络，首先由coarse网络得到文本块的heatmap， 再由fine网络分离出文本行。
-<img src="./_images/CCTN-1.png">
+![](_images/CCTN-1.png)
 
 * 网络结构
 
