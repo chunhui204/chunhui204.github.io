@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Weilin Huang——【arXiv2016】Accurate Text Localization in Natural Image with Cascaded Convolutional Text Network"
+title: "Weilin Huang—【arXiv2016】Accurate Text Localization in Natural Image with Cascaded Convolutional Text Network"
 date: 2018-6-25
 tag: text detection 
 ---   
