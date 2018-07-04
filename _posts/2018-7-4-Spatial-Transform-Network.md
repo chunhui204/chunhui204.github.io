@@ -47,6 +47,8 @@ tag: STN  attention  ROI pooling
 参考：
 
 [1] https://kevinzakka.github.io/2017/01/18/stn-part2/
+
 [2] https://arxiv.org/pdf/1506.02025.pdf
+
 [3] http://www.paperweekly.site/papers/notes/2
 
