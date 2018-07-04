@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Arbitrary-Oriented Scene Text Detection via Rotation Proposalsr"
+title: "Arbitrary-Oriented Scene Text Detection via Rotation Proposal"
 date: 2018-7-4
 tag: Faster-rcnn  rotational anchor
 ---   
