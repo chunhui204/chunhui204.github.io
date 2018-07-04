@@ -25,21 +25,13 @@ tag: STN  attention  ROI pooling
 图中STN由3部分组成：Localization net，Grid generator， sampler。其中U，V分别指输入和输出特征图。（Spatial Transform对feature map每个通道的处理是相同的）。将$U{\in}R^{H*W*C}$ 输入Localization网络，求得参数向量$\theta$，Grid generator根据$\theta$求出对应输入特征图的采样坐标$\tau_{\theta}$，最后对输入特征图采样得到$V{\in}R^{h*w*c}$。
 
 1. localization net
-
 参数预测网络预测出参数矩阵，见下。
-
 2. 坐标映射网络
-
 ![](/images/STN2.PNG)
-
 其中$U^C_{nm}$ 表示输入特征图在坐标m，n处的像素值，$k(x^s_i - m)$ 表示采样kernel，常用的有双线性采样核。可以看出输出特征图和输入大小是不同的，一般来说需要预先定义输出V的形状。在公式中每计算输出的一个像素值就要遍历整张输入特征图，所以我们能做逆变换（放射变换为例）：
-
 ![](/images/STN3.PNG)
-
 这里的$\theta$矩阵由参数预测网络得到。STN网络可以学习放射变换在内的各种变换。
-
 3. 采样网络
-
 ![](/images/STN4.PNG)
-
 由于上一步求得的坐标$(x^t_i, y^t_i)$ 是浮点数而实际坐标是整数，文中使用双线性插值来解决。公式见论文（4）（5），同时双线性插值是可导的，公式也给出（6）（7）。
+
