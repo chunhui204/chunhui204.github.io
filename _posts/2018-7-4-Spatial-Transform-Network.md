@@ -26,7 +26,7 @@ tag: STN  attention  ROI pooling
 
 1. localization net
 
-参数预测网络预测出参数矩阵，见下。
+参数预测网络预测出仿射变换矩阵，见下。
 
 2. 坐标映射网络
 
