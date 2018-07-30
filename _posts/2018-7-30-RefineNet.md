@@ -17,7 +17,7 @@ refineDet就是用FPN对SSD进行改进。SSD是直接在原始网络bottom-up�
 RefineNet在bottom-up部分也没闲着，他在这一部分refine anchor主要作用还是回归了anchor的坐标，形成两步回归的结构。作者认为对one-stage方法都只对anchor回归一次，
 很难将anchor拟合到精确位置。作者吧bottom-up部分叫refine部分用来微调anchor，up-bottom部分叫做目标检测部分，用的是refine后的anchor。
 
-![](images/refine1.PNG)
+![](/images/refine1.PNG)
 
 RefineNet生成anchor的方式和FPN结合RPN是一样的，在每一层配置单一尺度的anchor，不同层间anchor尺度不相同。在每一层上anchor比例都是1:1,1:2,2:1.
 图中上面的部分就是FPN的bottom-up，在这一部分做了对negative anchor的滤除和对anchor分类回归。
@@ -27,7 +27,7 @@ RefineNet生成anchor的方式和FPN结合RPN是一样的，在每一层配置�
 
 图中的迁移连接部分就是FPN的lateral connection。不过他的网络结构比FPN复杂。
 
-![](images/refine2.PNG)
+![](/images/refine2.PNG)
 
 * 3.Experiment
 
