@@ -28,11 +28,11 @@ $g_att(f,q;\theta)$是注意力网络的函数表示，根据当前特征图某�
 
 (/images/attention1_5.PNG)
 
-上述三个数据集分别是原生mnist，对数字做尺度缩放，将数字混合到自然场景下。可以看出STN在复杂背景很难提取有效地ROI，从PAN-CTX和PAN（未使用上下文）看出在自然场景下识别上下文信息会带来很大帮助。
+上述三个数据集分别是原生mnist，对数字做尺度缩放，将数字混合到自然场景下。可以看出STN在复杂背景很难提取有效地ROI，从PAN-CTX和PAN（未使用上下文）看出在自然场景下识别上下文信息会带来很大帮助。还有两种分别是soft attention 和hard attention，这两种attention都只作用于最后一层
 
 注意力机制可有效的应用与分类任务中。
-(/images/attention1_5.PNG)
-
-b,c分别是attention map，attented map，a是体现在原生图像上的效果。自左向右分别是三层注意力层可以看出效果逐步变好。
-
 (/images/attention1_6.PNG)
+
+b,c分别是attention map，attented map，a是体现在原生图像上的效果。自左向右分别是三层注意力层可以看出效果逐步变好。作者没有在第一二个pool后用PAN是觉得这两层特征不够区分性可能是可视化之后考虑的。
+
+(/images/attention1_7.PNG)
