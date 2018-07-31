@@ -1,9 +1,9 @@
-* 1. Introduction
+* Introduction
 
 两种视觉注意力机制：1.根据任务取特征子集，这部分特征对应着输入图像的某块区域，即感兴趣区域。soft attention和本文都属于着一种。
 2.通过图像进行变换。通过训练出的变换关系得到输出和输入之间的映射关系（采样表）对特征图相应位置进行采样得到ROI。如spatial transform network.
 
-* 2. network
+* network
 
 (/images/attention1_1.PNG)
 
@@ -16,7 +16,7 @@
 
 $g_att(f,q;\theta)$是注意力网络的函数表示，根据当前特征图某个位置的特征f和查询（标签）q得出该点与任务相关性的大小，$\theta$是网络参数。将得出的值送入softmax归一化得到权重值。然后权重和特征图相乘获得过滤后的attended特征图，$\alpha^l_{i,j} * f^l_{i,j}$。最后一层的时候对所有像素点求和得到1x1xC的向量。$\sum_{i}^{W}\sum_{j}^{H}\alpha^l_{i,j}*f^L_{i,j}$。
 
-* 2.1 attention network
+* attention network
 
 (/images/attention1_4.PNG)
 
