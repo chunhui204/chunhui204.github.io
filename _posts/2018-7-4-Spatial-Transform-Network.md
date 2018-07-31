@@ -22,7 +22,7 @@ tag: STN  attention  ROI pooling
 
 ![](/images/STN1.PNG)
 
-图中STN由3部分组成：Localization net，Grid generator， sampler。其中U，V分别指输入和输出特征图。（Spatial Transform对feature map每个通道的处理是相同的）。将$U{\in}R^{H*W*C}$ 输入Localization网络，求得参数向量$\theta$，Grid generator根据$\theta$求出对应输入特征图的采样坐标$\tau_{\theta}$，最后对输入特征图采样得到$V{\in}R^{h*w*c}$。
+图中STN由3部分组成：Localization net，Grid generator， sampler。其中U，V分别指输入和输出特征图。（Spatial Transform对feature map每个通道的处理是相同的）。将$ U{\in}R^{H*W*C}$, 输入Localization网络，求得参数向量$\theta$，Grid generator根据$\theta$求出对应输入特征图的采样坐标$\tau_{\theta}$，最后对输入特征图采样得到$V{\in}R^{h*w*c}$。
 
 1. localization net
 
