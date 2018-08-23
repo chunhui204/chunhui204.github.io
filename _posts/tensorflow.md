@@ -51,3 +51,24 @@ tf.group(a,b,c...)将多个op合并为一个op，注意参数是多个op，而�
  with tf.control_dependencies([a,b]):
     train_op = tf.no_op()
  ```
+
+6. python篇--内置函数
+
+这种设置用于向某函数传入回调函数，需要出规定参数以外的其他参数，这时候需要定义内置函数，外层函数传入额外参数，内置函数仍然是回调函数的格式，外层函数直接返回内层函数的函数名。
+```
+def _out(other_params):
+    #do with other params...
+    def _in(origin_params):
+        #do som thing
+    return _in
+    
+api_func(_out(params))  #因为_out(params) == _in
+```
+7. glabal_step 获取有两种方法，第一种直接tf.train.get_global_step(),第二种
+ ```
+ global_step =tf.get_variable(0, dtype=tf.int32,  trainable=False)
+ opt.minimize(global_step=global_step) #在这两两个函数中，每当权重更新一次，global_step变量加1.
+ or opt.apply_gradients(global_step=global_step)
+ ```
+ 
+ 
