@@ -70,5 +70,13 @@ api_func(_out(params))  #因为_out(params) == _in
  opt.minimize(global_step=global_step) #在这两两个函数中，每当权重更新一次，global_step变量加1.
  or opt.apply_gradients(global_step=global_step)
  ```
+ 8. 多gpu并行
  
- 
+ （1）gpu设置  
+ ```
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True #允许内存增长模式。默认情况是预分配空间的方式即把gpu占满，防止内存碎片。如果使用allow_growth内存会一点点增加但不会减少，同时为了避免内存碎片。
+config.gpu_options.per_process_gpu_memory_fraction = 0.4#限制使用每块gpu内存的比例，不常用
+ ```
+ （2）会设置一个参数设备（ps）和多个计算设备（worker)，在ps上放置参数在worker放置计算节点，但每个worker上也会保存模型参数的副本（tower), 这样是把参数放置在cpu而计算op定义在gpu，当然也可以图省事都定义在ps上。
+ 首先数据会被分成多分送入不同的worker，计算相应的loss, gradient, prediction，最后将这些量进行平均作为最终结果来更新模型。在定义变量时一定要使用变量重用的方式，这能保证不同的worker和ps之间的模型共享。
