@@ -87,3 +87,7 @@ config.gpu_options.per_process_gpu_memory_fraction = 0.4#限制使用每块gpu�
  ```
  （2）会设置一个参数设备（ps）和多个计算设备（worker)，在ps上放置参数在worker放置计算节点，但每个worker上也会保存模型参数的副本（tower), 这样是把参数放置在cpu而计算op定义在gpu，当然也可以图省事都定义在ps上。
  首先数据会被分成多分送入不同的worker，计算相应的loss, gradient, prediction，最后将这些量进行平均作为最终结果来更新模型。在定义变量时一定要使用变量重用的方式，这能保证不同的worker和ps之间的模型共享。
+
+9. keras模型+tensorflow训练
+
+https://www.tensorflow.org/guide/estimators
