@@ -1,4 +1,4 @@
-1.
+1. 维度
 
 第一个括号里面的每一项是第一维的元素，再进一层括号中的项是第二维的元素，最后一维的元素是最后一层括号中单个的数字。后面的维度作为前面维度的项，
 当前面维度的元素修改或复制后，后面维度的元素也是跟着变得。
@@ -68,11 +68,14 @@ def _out(other_params):
     
 api_func(_out(params))  #因为_out(params) == _in
 ```
-7. glabal_step 获取有两种方法，第一种直接tf.train.get_global_step(),第二种
+7. glabal_step 获取有两种方法，第一种直接tf.train.get_global_step(),第二种定义变量
  ```
  global_step =tf.get_variable(0, dtype=tf.int32,  trainable=False)
+ ```
+ 但是两者都要传入梯度更新函数中，使变量得到更新。
+ ```
  opt.minimize(global_step=global_step) #在这两两个函数中，每当权重更新一次，global_step变量加1.
- or opt.apply_gradients(global_step=global_step)
+ or opt.apply_gradients(global_step=global_step) #或者将变量换成tf.train.get_global_step()
  ```
  8. 多gpu并行
  
