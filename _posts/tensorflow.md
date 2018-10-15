@@ -98,3 +98,13 @@ config.gpu_options.per_process_gpu_memory_fraction = 0.4#限制使用每块gpu�
 9. keras模型+tensorflow训练
 
 https://www.tensorflow.org/guide/estimators
+
+10. 模型定义部分
+
+1. 注意padding选择
+```
+VALID方式：output_shape = (H - f + 1)/s   SAME方式：output_shape= [(H-f+2p)/s ] + 1
+```
+在tensorflow中，valid是舍弃像素的方式，卷积不到的部分直接舍弃；same补零不是在一圈补零，而是所需的补零个数2p为奇数时遵循左奇右偶的方式，和理论上的不灵方式不一样，所以在这种情况时使用tf.pad + conv(valid)方式代替系统默认的same方式。
+
+在定义网络是卷积部分不单独使用valid（前面有pad例外），因为可以由same代替。先通过输入输出形状求出2p是奇还是偶，偶数的话same方式和理论相同，技术的话要先tf.pad再conv(valid)。池化部分同样如此，所以conv3*3, s=1 和pool2*2, s=2是不用tf.pad的直接same即可。
