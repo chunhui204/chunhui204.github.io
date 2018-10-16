@@ -47,11 +47,11 @@ update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
 
 4. python *args, **kwargs
 
-当函数参数中含有*args, **kwargs时，表明该处应传入元组参数或字典参数，参数个数不限。如:
+当函数参数中含有*args, **kwargs时，表明该处应传入元组参数或字典参数的打开形式，参数个数不限。如:
 
 ```
-def func(a, *args) 调用时应该func(10,(1,3,2,1,4))
-def func(a, **kwargs) 调用时应该func(10,{'c':1, 'd': 14, 'e':10})
+def func(a, *args) 调用时应该func(10,1,3,2,1,4)
+def func(a, **kwargs) 调用时应该func(10,'c':1, 'd': 14, 'e':10)或者func(10,**{'c':1, 'd': 14, 'e':10})
 ```
 *作用于tuple（list），**作用于dict时表示将元组或字典拆开，变成元素散列的形式。如
 ```
