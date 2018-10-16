@@ -70,12 +70,20 @@ tf.group(a,b,c...)将多个op合并为一个op，注意参数是多个op，而�
  with tf.control_dependencies([a,b]):
     train_op = tf.no_op()
  ```
-/**********************************/
-相关API理解：
-1. tf.stack([tensor, tensor...], axis)在制定轴stack，增加一个维度 ， 
+ /************相关API理解：**********************/
+ ```
+1. tf.stack([tensor, tensor...], axis)在制定轴stack，增加一个维度 ，  
    tf.concat([tensor, tensor...], axis)在制定轴连接tensor，不增加维度
-
+   假设a=[[1,2,3],    b=[[7,8,9],                                 [[[1 2 3]      tf.concat([a,c], axis=0) [[1,2,3,7,8,9],
+        [4,5,6]]       [6,7,8]]    -->  tf.stack([a,b], axis=0)   [4 5 6]]  ->                             [4,5,6,6,7,8]]
+                                                                  [[7 8 9]
+                                                                  [6 7 8]]]
+   tf.unstack(tensor, axis) 在制定轴将tensor拆开，数量为该轴维度，维度减少一个。
+   tf.split(tensor, num_or_size_splits, axis):拆开但不减少维度，num=int:均匀分；num=list:按list元素给定的形状分。
+                    tf.split(tensor(2,11), [1,5,5])
+```
 /***********************************/
+
 6. python篇--内置函数
 
 这种设置用于向某函数传入回调函数，需要出规定参数以外的其他参数，这时候需要定义内置函数，外层函数传入额外参数，内置函数仍然是回调函数的格式，外层函数直接返回内层函数的函数名。
