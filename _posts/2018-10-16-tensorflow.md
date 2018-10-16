@@ -17,7 +17,15 @@ tf.reduce_*系列：对某个维度求和或求平均等，这个维度被消去
 
 ```
 tf.variable_scope(scope, reuse=tf.AUTO_REUSE)
-会在创建的变量，其名前增加前缀scope，对于重用的变量他的名字前缀会是scope_1，但他们是共享参数的，通过tf.trainable_variables()查看可知他们是同一个变量
+会在创建的变量和op节点，其名前增加前缀scope，对于重用的变量他的名字前缀会是scope_1，但他们是共享参数的，通过tf.trainable_variables()查看可知他们是同一个变量
+tf.name_scope只修饰操作名称，为tf.conv等封装函数指定name，是指定的variable_name即修饰变量叶修饰操作。变量和操作命名本身是定义作用域所以尽量指定name。如下
+with tf.variable_scope("CONV", reuse=tf.AUTO_REUSE):
+    with tf.name_scope("tower_{}".format(1)):
+        w = tf.get_variable('w', (10, 224, 224, 3), tf.float32)
+        z = tf.layers.conv2d(w, filters=3, kernel_size=1, strides=1,
+                             padding="same", name='conv_same')
+变量w只有名称CONV/w, 卷积部分有变量名称CONV/conv_same/bias, CONV/conv_same/kernel,操作名称 CONV/tower_1/conv_same/BiasAdd,
+CONV/tower_1/conv_same/Conv2D, （z是一个操作节点，返回的是卷积的最后一个操作BiasAdd），具体可用tfdbg查看。
 ```
 3. control dependency
 
