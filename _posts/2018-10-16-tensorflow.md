@@ -83,6 +83,9 @@ def _out(other_params):
     
 api_func(_out(params))  #因为_out(params) == _in
 ```
+命名规范：
+类成员变量用self.定义，私有成员变量和函数用前置两个下划线定义，不能被本类以外的其他作用域调用。共有的成员前不加下划线或加一个。静态函数用@staticmethod修饰，使用同c++。
+
 7. glabal_step 获取有两种方法，第一种直接tf.train.get_global_step(),第二种定义变量
  ```
  global_step =tf.get_variable(0, dtype=tf.int32,  trainable=False)
