@@ -81,13 +81,10 @@ tf.group(a,b,c...)将多个op合并为一个op，注意参数是多个op，而�
    tf.unstack(tensor, axis) 在制定轴将tensor拆开，数量为该轴维度，维度减少一个。
    tf.split(tensor, num_or_size_splits, axis):拆开但不减少维度，num=int:均匀分；num=list:按list元素给定的形状分。
                     tf.split(tensor(2,11), [1,5,5])
-2. tf.sparse_tensor_to_dense(sparseTensor) 
- sparseTensor: SparseTensor(indices=[[0, 0], [0, 1], [2, 0]],
-                      values=[a, b, c],
-                      dense_shape=(3, 2))规定一种编码格式，indice表示在二维丈量整的位置，value存值。
-                      
-denseTensor: [[a,b], [0,0],[c,0]]
-                      
+                    
+2. SparseTensor和DenseTensor
+sparseTensor是(batch_size, 2)第一列是序号表示在这个batch中的索引，第二个是具体值。
+denseTensor是（batch_szie, label_num）的，是onehot形式
 ```
 /***********************************/
 
