@@ -137,6 +137,8 @@ VALID方式：output_shape = (H - f + 1)/s   SAME方式：output_shape= [(H-f+2p
 
 在定义网络是卷积部分不单独使用valid（前面有pad例外），因为可以由same代替。先通过输入输出形状求出2p是奇还是偶，偶数的话same方式和理论相同，技术的话要先tf.pad再conv(valid)。池化部分同样如此，所以conv3*3, s=1 和pool2*2, s=2是不用tf.pad的直接same即可。
 
+首先通过(H - f)/s是否能整出判断使用valid还是same方式。
+
 2. 卷积层的use_bias
 
 卷积层使用bias会规范样本分布（中心化），如果卷积后跟BN层就不需要使用bias，因为BN层中会处理偏差。如果没有跟BN那要指定use_bias=True。
