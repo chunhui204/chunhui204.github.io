@@ -140,3 +140,11 @@ VALID方式：output_shape = (H - f + 1)/s   SAME方式：output_shape= [(H-f+2p
 2. 卷积层的use_bias
 
 卷积层使用bias会规范样本分布（中心化），如果卷积后跟BN层就不需要使用bias，因为BN层中会处理偏差。如果没有跟BN那要指定use_bias=True。
+
+3. flatten
+```
+layers.flatten()是通过reshape实现的。以下写法等价：
+p_a = tf.contrib.layers.flatten(p3)                              # <-----Option A
+p_b = tf.reshape(p3, [-1, p3_shape[1] * p3_shape[2] * p3_shape[3]])
+```
+
