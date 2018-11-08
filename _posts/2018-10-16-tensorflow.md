@@ -70,6 +70,9 @@ tf.group(a,b,c...)将多个op合并为一个op，注意参数是多个op，而�
  with tf.control_dependencies([a,b]):
     train_op = tf.no_op()
  ```
+ 
+ 6. ==没有重载，一个tensor判断==或者！=，是用来判断None的，不管tensor维度是多少都只返回一个bool值，不同于tf.equal。如果想实现逻辑比较只能用tf.equal。
+ 
  /************相关API理解：**********************/
  ```
 1. tf.stack([tensor, tensor...], axis)在制定轴stack，增加一个维度 ，  
